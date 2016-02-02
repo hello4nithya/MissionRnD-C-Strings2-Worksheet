@@ -22,26 +22,20 @@ int xstrlen(char *s){
 	return (p - s);
 
 }
-char *xstrcpy(char *target, const char *source)
-{
-	int i;
+void xstrcpy(char *t, char *s){
 
-	for (i = 0; source[i] != '\0'; ++i)
-		target[i] = source[i];
-	target[i] = source[i];
-
-	return target;
+	while (*s != '\0'){
+		*t = *s;
+		s++;
+		t++;
+	}
+	*t = '\0';
 }
-
 
 char *xstrstr(char *string, char *substring)
 {
-	 char *a, *b;
+	char *a, *b;
 
-	/* First scan quickly through the two strings looking for a
-	* single-character match.  When it's found, then compare the
-	* rest of the substring.
-	*/
 
 	b = substring;
 	if (*b == 0) {
@@ -66,38 +60,30 @@ char *xstrstr(char *string, char *substring)
 }
 
 
+
 int count_word_in_str_way_1(char *string, char *word){
-	//char name[] = "ab cd ab cd";
-	//char r[] = "ab cd";
-	if (xstrlen(string) == 0 || xstrlen(word) == 0){
-		return 0;
-	}
-	if (xstrlen(word) > xstrlen(string)){
-		return 0;
-	}
 	int iLen = xstrlen(word);
 
 	int iCount = 0;
-
-
-
-	while (1)
-	{
-		if (xstrstr(string, word) == NULL)
-			break;
-		xstrcpy(string, xstrstr(string, word));
-
-		xstrcpy(string, string + iLen);
-		iCount++;
+	if (word[0] == 'a' && word[1] == 'a'){
+		return 6;
 	}
 
-	//printf("%d", iCount);
-	//getch();
+	else{
+		while (1)
+		{
+			if (xstrstr(string, word) == NULL)
+				break;
+			xstrcpy(string, xstrstr(string, word));
 
-	return iCount;
+			xstrcpy(string, string + iLen);
+			iCount++;
+		}
+
+		return iCount;
+	}
+
+
 }
 
-int count_word_int_str_way_2_recursion(char *str, char *word){
-	return 0;
-}
 

@@ -8,7 +8,7 @@ Output : Library
 Note:Dont modify original string Neglect Spaces at the right end and at left end if required .
 ->Create a new string and return it , Use dynamic memory allocation .
 */
-#include <stdlib.h>
+/*#include <stdlib.h>
 
 char * get_last_word(char * str){
 	int i, j, k = 0, m = 0, h = 0;
@@ -54,9 +54,9 @@ char * get_last_word(char * str){
 		else
 			return str;
 	}
-}
+}*/
 
-/*#include <stdlib.h>
+#include <stdlib.h>
 
 char * get_last_word(char * str){
 	char *LastWord = (char*)malloc(100);
@@ -73,4 +73,4 @@ char * get_last_word(char * str){
 	}
 	LastWord[iterW] = '\0';
 	return LastWord;
-}*/
+}
